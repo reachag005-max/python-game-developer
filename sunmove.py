@@ -1,0 +1,31 @@
+import pgzrun
+
+def draw():
+    screen.fill("light blue")
+    screen.draw.filled_circle((150,150),75,color="yellow")
+    screen.draw.filled_circle((450,180),65,color="orange")
+    screen.draw.filled_circle((750,210),55,color="red")
+    screen.draw.filled_circle((150,225),35,color="white")
+    screen.draw.filled_circle((175,225),35,color="white")
+    screen.draw.filled_circle((190,235),35,color="white")
+    screen.draw.filled_circle((115,235),35,color="white")
+    screen.draw.filled_circle((150,235),35,color="white")
+    screen.draw.filled_circle((150,225),35,color="white")
+    screen.draw.filled_circle((150,225),35,color="white")
+    screen.draw.filled_circle((450,225),35,color="white")
+    screen.draw.filled_circle((475,225),35,color="white")
+    screen.draw.filled_circle((490,235),35,color="white")
+    screen.draw.filled_circle((415,235),35,color="white")
+    screen.draw.filled_circle((450,235),35,color="white")
+    screen.draw.filled_circle((450,225),35,color="white")
+    screen.draw.filled_circle((450,225),35,color="white")
+    screen.draw.filled_circle((750,235),35,color="white")
+    screen.draw.filled_circle((775,235),35,color="white")
+    screen.draw.filled_circle((790,245),35,color="white")
+    screen.draw.filled_circle((715,245),35,color="white")
+    screen.draw.filled_circle((750,245),35,color="white")
+    screen.draw.filled_circle((750,235),35,color="white")
+    screen.draw.filled_circle((750,235),35,color="white")
+    
+
+pgzrun.go()
