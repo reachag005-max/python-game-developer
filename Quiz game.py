@@ -14,10 +14,10 @@ ansbox4 = Rect(0,0,180,90)
 skipbox = Rect(0,0,70,180)
 
 time = 10
-question_file = ""
+question_file = "questions.txt"
 marqueemsg = ""
 ansboxes = [ansbox1,ansbox2,ansbox3,ansbox4]
-question = []
+questions = []
 questindex = 0
 questcount = 0
 isgameover = False
@@ -31,6 +31,16 @@ ansbox3.move_ip(10,280)
 ansbox4.move_ip(210,280)
 skipbox.move_ip(400,160)
 
+def load_question():
+    global questions,questcount
+
+    with open(question_file, "r") as file:
+        questions = file.readlines()
+    print(questions)
+
+    questcount = len(questions)
+
+
 def draw():
     global marqueemsg
     screen.clear()
@@ -42,5 +52,11 @@ def draw():
     for ansbox in ansboxes:
         screen.draw.filled_rect(ansbox,"red")
     marqueemsg = "Welcome to Quiz Master"
+    marqueemsg = marqueemsg + f" Q {questindex} of {questcount}"
+    screen.draw.textbox(marqueemsg,marqueebox,color = "white")
+    screen.draw.textbox(str(time),timebox,color = "white",shadow = (0.5,0.5),scolor = "Grey")
+    screen.draw.textbox("SKIP",skipbox,color="Black",angle = 90)
+    #screen.draw.textbox(questions[0].strip(),questionbox,color = "black",shadow = (0.5,0.5),scolor= "Grey")
 
+load_question()
 pgzrun.go()
