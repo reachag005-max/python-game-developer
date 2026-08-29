@@ -37,12 +37,11 @@ for x in range(8):
 for x in range(8):
     for y in range(4):
         meteors.append(Actor("meteor.png"))
-        meteors[-1].x = random.randint(100,WIDTH)
+        meteors[-1].x = random.randint(20,WIDTH-20)
         meteors[-1].y = 0 + 30*y
 
 def update():
     global direction,score,directionm
-    pass
     if keyboard.d:
         ship.x += 10
     if keyboard.a:
@@ -72,11 +71,12 @@ def update():
             if movedown1 == True:
                 meteor.y +=5
 
-        for bullet in bullets: 
-            if meteor.colliderect(bullet):
-                meteors.remove(meteor)
-                bullets.remove(bullet)
-                score+=1
+            for bullet in bullets: 
+                if meteor.colliderect(bullet):
+                    meteors.remove(meteor)
+                    bullets.remove(bullet)
+                    score+=1
+                    break
 
 def draw():
     screen.fill("grey") 
