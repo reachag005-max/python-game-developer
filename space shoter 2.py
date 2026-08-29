@@ -15,6 +15,7 @@ aliens = []
 bullets = []
 
 direction = 1
+directionm = 1
 
 score = 0
 
@@ -40,7 +41,7 @@ for x in range(8):
         meteors[-1].y = 0 + 30*y
 
 def update():
-    global direction,score
+    global direction,score,directionm
     pass
     if keyboard.d:
         ship.x += 10
@@ -62,20 +63,20 @@ def update():
                     aliens.remove(alien)
                     bullets.remove(bullet)
                     score+=1
-
+    movedown1= False
     if len(meteors)>0 and (meteors[-1].x>WIDTH-20 or meteors[-1].x<20):
-        movedown = True
+        movedown1 = True
         directionm = directionm *-1
         for meteor in meteors:
             meteor.x += 2*directionm
-            if movedown == True:
-                meteor.y +=1
+            if movedown1 == True:
+                meteor.y +=5
 
-            for bullet in bullets: 
-                if meteor.colliderect(bullet):
-                    meteors.remove(meteor)
-                    bullets.remove(bullet)
-                    score+=1
+        for bullet in bullets: 
+            if meteor.colliderect(bullet):
+                meteors.remove(meteor)
+                bullets.remove(bullet)
+                score+=1
 
 def draw():
     screen.fill("grey") 
